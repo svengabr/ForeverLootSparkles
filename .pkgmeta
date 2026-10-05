@@ -1,0 +1,13 @@
+package-as: ForeverLootSparkles
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+
+ignore:
+  - .gitignore
+  - .luacheckrc
+  - .github
+  - .pkgmeta
+  - media
+  - dist

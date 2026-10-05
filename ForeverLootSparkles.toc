@@ -2,7 +2,8 @@
 ## Title: Forever Loot Sparkles
 ## Notes: Always shows the sparkle effect on lootable quest items. Turns the outline mode off and the loot sparkle on at login and whenever a graphics change resets it. No options.
 ## Author: Ashtar Senior
-## Version: 1.0.0
+## Version: @project-version@
+## X-License: GPL-3.0-or-later
 ## X-Curse-Project-ID: 1729017
 
 ForeverLootSparkles.lua
