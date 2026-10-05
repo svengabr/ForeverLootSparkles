@@ -11,3 +11,5 @@ ignore:
   - .pkgmeta
   - media
   - dist
+  - AGENTS.md
+  - CLAUDE.md
