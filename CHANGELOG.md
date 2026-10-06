@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+- Addon icon in the addon list.
+- The addon list shows "dev" instead of the raw version placeholder when running from a source checkout.
+
 ## 1.1.0
 
 - Options panel under Esc > Options > AddOns > Forever Loot Sparkles with a checkbox to switch the sparkles on or off (on by default).
