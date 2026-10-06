@@ -16,7 +16,7 @@ watched cvar changes (`CVAR_UPDATE`), the addon sets:
 | `raidGraphicsOutlineMode` | 0 |
 | `RAIDOutlineEngineMode` | 0 |
 
-In combat it waits for `PLAYER_REGEN_ENABLED`. There are no options and no SavedVariables. Everything lives in
+In combat it waits for `PLAYER_REGEN_ENABLED`. One option (checkbox under Esc > Options > AddOns, SavedVariable `ForeverLootSparklesDB.enabled`, default on); switching it off stops enforcing and writes the `DISABLED` values once (loot effect 0, outline modes 2). Tested in the client: switching on shows the sparkle at once, switching off only takes effect after a full game restart (`/reload` is not enough), so a notice shows while the option is off and sparkles were on this session. Everything lives in
 `ForeverLootSparkles.lua`.
 
 The feature was extracted from ForeverQoL, which set the same cvars through secure macro buttons

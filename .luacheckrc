@@ -4,10 +4,16 @@ std = "lua51"
 max_line_length = false
 exclude_files = { ".luacheckrc" }
 
+globals = {
+  "ForeverLootSparklesDB",
+}
+
 read_globals = {
   "C_CVar",
   "CreateFrame",
+  "CreateSettingsListSectionHeaderInitializer",
   "GetTime",
   "InCombatLockdown",
+  "Settings",
   "strlower",
 }
