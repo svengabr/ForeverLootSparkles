@@ -2,7 +2,9 @@
 
 A tiny addon for **World of Warcraft: Forever** that always shows the sparkle effect on lootable quest items.
 
-The sparkle only appears while the outline mode is off. Graphics presets switch it back on, so the addon sets the needed console variables at login and again whenever a graphics change resets them. ## Options
+The sparkle only appears while the outline mode is off. Graphics presets switch it back on, so the addon sets the needed console variables at login and again whenever a graphics change resets them.
+
+## Options
 
 Open **Esc > Options > AddOns > Forever Loot Sparkles**. The checkbox **Show quest item sparkles** is on by default. Switching it off stops the addon from touching the graphics settings, turns the loot sparkle off and sets the outline mode back to High (the two commands below). Switching it on works at once. Switching it off only takes effect after **restarting the game**; `/reload` is not enough. The panel shows a reminder.
 
@@ -34,3 +36,7 @@ Then restart the game.
 | `OutlineEngineMode` | 0 |
 | `raidGraphicsOutlineMode` | 0 |
 | `RAIDOutlineEngineMode` | 0 |
+
+## Support
+
+The addon is free and always will be. If it made your game a bit nicer, you can [buy me a coffee](https://buymeacoffee.com/conoar).
