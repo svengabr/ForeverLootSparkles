@@ -2,33 +2,73 @@
 
 <img src="https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/logo.png" alt="ForeverLootSparkles logo" width="128">
 
-A tiny addon for **World of Warcraft: Forever** that always shows the sparkle effect on lootable quest items.
+A small addon for **World of Warcraft: Forever** that makes lootable things sparkle, so you never walk past them.
 
-The sparkle only appears while the outline mode is off. Graphics presets switch it back on, so the addon sets the needed console variables at login and again whenever a graphics change resets them.
-
-The game has no sparkle for ore veins and herbs, so the addon adds its own: as you approach a node, a small cluster of golden glints twinkles over it. They are dim while the node is out of reach, brighten once you can gather it, and turn grey when you can't (skill too low). This uses Blizzard's soft targeting, which marks the nearest interactable object within about 15 yards; the game's interact icon is switched on above it as well.
+- **Quest items** always show the game's loot sparkle, even after a graphics preset turns it off.
+- **Herbs and ore veins** sparkle as you approach them, which the game can't do on its own.
+- **Gathering icons** float above the node you're heading for.
+- Everything is optional, under Esc > Options > AddOns. No slash commands, nothing to set up.
 
 ![Forever Loot Sparkles](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/01-overview.jpg)
 
+## Quest item sparkles
+
+The game only shows the sparkle on quest items while the outline mode is off. Graphics presets switch the outline back on, so the addon sets the needed console variables at login, and again about a second after any graphics change resets them. During combat it waits until the fight is over.
+
 ![Survives graphics presets](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/02-presets.jpg)
+
+## Herb and ore sparkles
+
+The game has no sparkle for ore veins and herbs, so the addon adds its own. As you approach a node, a small cluster of golden glints twinkles over it, and the game's gathering icon appears above it.
+
+- **Out of reach:** the glints are dim.
+- **In reach:** they brighten with a short burst, so you know you can gather now.
+- **Can't gather:** they turn grey, for example when your skill is too low.
+
+This uses Blizzard's soft targeting, which picks the nearest interactable object around you, up to about 15 yards away. Only one node sparkles at a time: the one the game would interact with. Quest objects can get the same treatment, but that is off by default, since the loot sparkle above already marks most of them.
+
+The addon only switches on the game's name and icon for nodes that sparkle. NPCs, mailboxes and other objects still work with the interact key as usual.
+
+![Herbs and ore sparkle too](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/04-gathering.jpg)
 
 ## Options
 
-Open **Esc > Options > AddOns > Forever Loot Sparkles**. The checkbox **Show quest item sparkles** is on by default. Switching it off stops the addon from touching the graphics settings, turns the loot sparkle off and sets the outline mode back to High (the two commands below). Switching it on works at once. Switching it off only takes effect after **restarting the game**; `/reload` is not enough. The panel shows a reminder.
+Open **Esc > Options > AddOns > Forever Loot Sparkles**.
 
-Under **Sparkles while approaching** there are three more checkboxes: **Ore veins** and **Herbs** (on by default) and **Quest objects** (off by default, since the game's loot sparkle already marks most of them). They take effect at once.
+| Checkbox | Default | What it does |
+| --- | --- | --- |
+| Show quest item sparkles | on | Keeps the outline mode off and the loot sparkle on. |
+| Ore veins | on | Sparkles and icon on mining nodes. |
+| Herbs | on | Sparkles and icon on herbs. |
+| Quest objects | off | Extra sparkles on quest objects nearby. |
+
+The three bottom checkboxes take effect at once. **Show quest item sparkles** works at once when you switch it on, but switching it off only takes effect after **restarting the game** (`/reload` is not enough). The panel shows a reminder.
 
 ![Options](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/03-options.jpg)
 
 ## Install
 
-1. Download the latest release zip.
+1. Download the latest release zip, or install it with the CurseForge app.
 2. Extract it so you have `World of Warcraft\_classic_beta_\Interface\AddOns\ForeverLootSparkles`.
 3. Restart the game or type `/reload`.
 
+## FAQ
+
+**Why don't herbs get the same sparkle as quest items?**
+The game has no setting for that. The quest item sparkle replaces the outline that quest items have, and herbs and ore have no such outline. That is why the addon draws its own glints instead.
+
+**Can the range be larger than 15 yards?**
+The addon asks the game for the largest range, but the game itself drops the target at about 15 yards.
+
+**I also see an icon above NPCs or other objects.**
+The game's soft target icons are switched on for everything you can interact with, not only for herbs and ore.
+
+**Does it work together with Lueur?**
+Don't run both at once. They change the same soft targeting settings and get in each other's way.
+
 ## Turning it off again
 
-The easiest way is the checkbox under Options (see above), which resets the settings for you.
+The easiest way is the checkboxes under Options (see above), which put the settings back for you. Untick all of them before you disable the addon.
 
 Disabling the addon in the addon list does **not** undo the settings, because WoW saves console variables itself. After disabling it, either pick a graphics preset again, or type:
 
@@ -39,9 +79,11 @@ Disabling the addon in the addon list does **not** undo the settings, because Wo
 
 Then restart the game.
 
-The soft targeting settings for the approach sparkles are put back as soon as all three checkboxes under **Sparkles while approaching** are off. Untick them before disabling the addon.
+The soft targeting settings are put back as soon as **Ore veins**, **Herbs** and **Quest objects** are all off.
 
 ## What it sets
+
+For the quest item sparkles:
 
 | Console variable | Value |
 | --- | --- |
@@ -51,12 +93,12 @@ The soft targeting settings for the approach sparkles are put back as soon as al
 | `raidGraphicsOutlineMode` | 0 |
 | `RAIDOutlineEngineMode` | 0 |
 
-For the approach sparkles, while at least one of their checkboxes is on (the original values are saved and restored):
+For the herb and ore sparkles, while at least one of their checkboxes is on (the original values are saved and restored):
 
 | Console variable | Value |
 | --- | --- |
 | `SoftTargetInteract` | 3 |
-| `SoftTargetInteractRange` | 60 (the client still stops at about 15 yards) |
+| `SoftTargetInteractRange` | 60 (the game still stops at about 15 yards) |
 | `SoftTargetInteractArc` | 2 |
 | `SoftTargetInteractOnlyInRange` | 0 |
 | `SoftTargetIconInteract` | 1 |
