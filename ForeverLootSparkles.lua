@@ -2,7 +2,7 @@
 -- outlineModeShowLootEffectWhenDisabled is on. Graphics presets reset these,
 -- so they are applied at login and again after every relevant cvar change.
 
-local ADDON_NAME = ...;
+local ADDON_NAME, ns = ...;
 
 local WANTED = {
 	outlineModeShowLootEffectWhenDisabled = "1",
@@ -106,6 +106,8 @@ local function RegisterOptions()
 		return sparklesShown and not IsEnabled();
 	end);
 	Settings.RegisterInitializer(category, notice);
+
+	ns.AddSoftTargetOptions(category, db);
 
 	Settings.RegisterAddOnCategory(category);
 end

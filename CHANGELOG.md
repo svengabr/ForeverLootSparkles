@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0
+
+- Ore veins and herbs sparkle as you approach them, using Blizzard's soft targeting (adapted from Lueur). The glints are dim out of reach, brighten in reach and turn grey when the node can't be gathered.
+- The game's soft target icons are switched on (also for world objects), and the soft target range is set to the maximum.
+- New checkboxes under Options > AddOns > Forever Loot Sparkles: Ore veins and Herbs (on), Quest objects (off).
+- The soft targeting console variables are saved and restored once all three are switched off.
+
 ## 1.1.1
 
 - Addon icon in the addon list.

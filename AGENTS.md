@@ -16,8 +16,17 @@ watched cvar changes (`CVAR_UPDATE`), the addon sets:
 | `raidGraphicsOutlineMode` | 0 |
 | `RAIDOutlineEngineMode` | 0 |
 
-In combat it waits for `PLAYER_REGEN_ENABLED`. One option (checkbox under Esc > Options > AddOns, SavedVariable `ForeverLootSparklesDB.enabled`, default on); switching it off stops enforcing and writes the `DISABLED` values once (loot effect 0, outline modes 2). Tested in the client: switching on shows the sparkle at once, switching off only takes effect after a full game restart (`/reload` is not enough), so a notice shows while the option is off and sparkles were on this session. Everything lives in
-`ForeverLootSparkles.lua`; the addon list icon is `Icon.tga` (64×64, scaled down from `media/logo.png`, whose source is `media/logo.svg`).
+In combat it waits for `PLAYER_REGEN_ENABLED`. One option (checkbox under Esc > Options > AddOns, SavedVariable `ForeverLootSparklesDB.enabled`, default on); switching it off stops enforcing and writes the `DISABLED` values once (loot effect 0, outline modes 2). Tested in the client: switching on shows the sparkle at once, switching off only takes effect after a full game restart (`/reload` is not enough), so a notice shows while the option is off and sparkles were on this session. The cvar part lives in
+`ForeverLootSparkles.lua`.
+
+`SoftTarget.lua` (adapted from the maintainer's Lueur addon) adds sparkles on ore veins, herbs and optionally quest
+objects: it switches on interaction soft targeting (`SoftTargetInteract` 3, range 60 (the client still stops at ~15), arc 2, icons via `SoftTargetIconInteract`, `SoftTargetIconGameObject`, `SoftTargetLowPriorityIcons` = 1), turns the
+`softinteract` nameplate on only for wanted objects (`SoftTargetNameplateInteract`), classifies the object by its
+cursor icon (`SetUnitCursorTexture`) and hangs a cluster of glints (`Textures/flare.tga`, fallback
+`Interface\Cooldown\star4`) on that nameplate. States: far (dim), ready (bright), locked (grey). Options
+`sparkleOre`, `sparkleHerbs` (default on), `sparkleQuest` (default off) in the same SavedVariable; the original cvar
+values sit in `ForeverLootSparklesDB.savedCVars` and are restored when all three are off. Its options are added by
+`ns.AddSoftTargetOptions` while the main file builds the panel. The addon list icon is `Icon.tga` (64×64, scaled down from `media/logo.png`, whose source is `media/logo.svg`).
 
 The feature was extracted from ForeverQoL, which set the same cvars through secure macro buttons
 (`/console …`). This addon uses `C_CVar.SetCVar` instead.

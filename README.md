@@ -6,6 +6,8 @@ A tiny addon for **World of Warcraft: Forever** that always shows the sparkle ef
 
 The sparkle only appears while the outline mode is off. Graphics presets switch it back on, so the addon sets the needed console variables at login and again whenever a graphics change resets them.
 
+The game has no sparkle for ore veins and herbs, so the addon adds its own: as you approach a node, a small cluster of golden glints twinkles over it. They are dim while the node is out of reach, brighten once you can gather it, and turn grey when you can't (skill too low). This uses Blizzard's soft targeting, which marks the nearest interactable object within about 15 yards; the game's interact icon is switched on above it as well.
+
 ![Forever Loot Sparkles](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/01-overview.jpg)
 
 ![Survives graphics presets](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/02-presets.jpg)
@@ -13,6 +15,8 @@ The sparkle only appears while the outline mode is off. Graphics presets switch 
 ## Options
 
 Open **Esc > Options > AddOns > Forever Loot Sparkles**. The checkbox **Show quest item sparkles** is on by default. Switching it off stops the addon from touching the graphics settings, turns the loot sparkle off and sets the outline mode back to High (the two commands below). Switching it on works at once. Switching it off only takes effect after **restarting the game**; `/reload` is not enough. The panel shows a reminder.
+
+Under **Sparkles while approaching** there are three more checkboxes: **Ore veins** and **Herbs** (on by default) and **Quest objects** (off by default, since the game's loot sparkle already marks most of them). They take effect at once.
 
 ![Options](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/03-options.jpg)
 
@@ -35,6 +39,8 @@ Disabling the addon in the addon list does **not** undo the settings, because Wo
 
 Then restart the game.
 
+The soft targeting settings for the approach sparkles are put back as soon as all three checkboxes under **Sparkles while approaching** are off. Untick them before disabling the addon.
+
 ## What it sets
 
 | Console variable | Value |
@@ -44,6 +50,19 @@ Then restart the game.
 | `OutlineEngineMode` | 0 |
 | `raidGraphicsOutlineMode` | 0 |
 | `RAIDOutlineEngineMode` | 0 |
+
+For the approach sparkles, while at least one of their checkboxes is on (the original values are saved and restored):
+
+| Console variable | Value |
+| --- | --- |
+| `SoftTargetInteract` | 3 |
+| `SoftTargetInteractRange` | 60 (the client still stops at about 15 yards) |
+| `SoftTargetInteractArc` | 2 |
+| `SoftTargetInteractOnlyInRange` | 0 |
+| `SoftTargetIconInteract` | 1 |
+| `SoftTargetIconGameObject` | 1 |
+| `SoftTargetLowPriorityIcons` | 1 |
+| `SoftTargetNameplateInteract` | 1 on a node that sparkles, otherwise 0 |
 
 ## Support
 

@@ -1,6 +1,6 @@
 ## Interface: 16001
 ## Title: Forever Loot Sparkles
-## Notes: Always shows the sparkle effect on lootable quest items. Turns the outline mode off and the loot sparkle on at login and whenever a graphics change resets it. Can be switched off under Options > AddOns.
+## Notes: Always shows the sparkle effect on lootable quest items. Turns the outline mode off and the loot sparkle on at login and whenever a graphics change resets it. Also makes ore veins and herbs sparkle as you approach them (Blizzard's soft targeting). Options under Options > AddOns.
 ## Author: Ashtar Senior
 #@debug@
 ## Version: dev
@@ -14,3 +14,4 @@
 ## X-Curse-Project-ID: 1729017
 
 ForeverLootSparkles.lua
+SoftTarget.lua
