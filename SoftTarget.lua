@@ -594,11 +594,12 @@ end
 handlers.VARIABLES_LOADED = handlers.PLAYER_LOGIN;
 handlers.PLAYER_ENTERING_WORLD = handlers.PLAYER_LOGIN;
 
--- Cvars can't change in combat: open the nameplate just before, so objects
--- passed during the fight still sparkle
+-- Cvars can't change in combat: close the nameplate just before. Left open, every
+-- lootable corpse would keep a 0% health nameplate until the fight ends; the
+-- price is that nodes don't sparkle during combat.
 function handlers.PLAYER_REGEN_DISABLED()
 	if IsActive() then
-		SetGate(true);
+		SetGate(false);
 	end
 end
 

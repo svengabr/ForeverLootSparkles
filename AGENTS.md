@@ -23,7 +23,7 @@ In combat it waits for `PLAYER_REGEN_ENABLED`. One option (checkbox under Esc > 
 objects: it switches on interaction soft targeting (`SoftTargetInteract` 3, range 60 (the client still stops at ~15), arc 2, icons via `SoftTargetIconInteract`, `SoftTargetIconGameObject`, `SoftTargetLowPriorityIcons` = 1), turns the
 `softinteract` nameplate on only for wanted objects (`SoftTargetNameplateInteract`), classifies the object by its
 cursor icon (`SetUnitCursorTexture`) and hangs a cluster of glints (`Textures/flare.tga`, fallback
-`Interface\Cooldown\star4`) on that nameplate. States: far (dim), ready (bright), locked (grey). Options
+`Interface\Cooldown\star4`) on that nameplate. States: far (dim), ready (bright), locked (grey). The nameplate is closed on `PLAYER_REGEN_DISABLED` (cvars are locked in combat; left open, lootable corpses kept a 0% health nameplate, reported on CurseForge), so nodes don't sparkle in combat. Options
 `sparkleOre`, `sparkleHerbs` (default on), `sparkleQuest` (default off) in the same SavedVariable; the original cvar
 values sit in `ForeverLootSparklesDB.savedCVars` and are restored when all three are off. Its options are added by
 `ns.AddSoftTargetOptions` while the main file builds the panel. The addon list icon is `Icon.tga` (64×64, scaled down from `media/logo.png`, whose source is `media/logo.svg`).

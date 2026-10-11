@@ -27,7 +27,7 @@ The game has no sparkle for ore veins and herbs, so the addon adds its own. As y
 
 This uses Blizzard's soft targeting, which picks the nearest interactable object around you, up to about 15 yards away. Only one node sparkles at a time: the one the game would interact with. Quest objects can get the same treatment, but that is off by default, since the loot sparkle above already marks most of them.
 
-The addon only switches on the game's name and icon for nodes that sparkle. NPCs, mailboxes and other objects still work with the interact key as usual.
+The addon only switches on the game's name and icon for nodes that sparkle. NPCs, mailboxes and other objects still work with the interact key as usual. During combat nodes don't sparkle; they come back as soon as the fight is over.
 
 ![Herbs and ore sparkle too](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/04-gathering.jpg)
 
@@ -62,6 +62,9 @@ The addon asks the game for the largest range, but the game itself drops the tar
 
 **I also see an icon above NPCs or other objects.**
 The game's soft target icons are switched on for everything you can interact with, not only for herbs and ore.
+
+**Why don't nodes sparkle during combat?**
+The game doesn't let addons change these settings during combat. Keeping the sparkle on through a fight would also show a 0% health nameplate over every lootable corpse, so the addon switches it off when combat starts.
 
 **Does it work together with Lueur?**
 Don't run both at once. They change the same soft targeting settings and get in each other's way.
