@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- New checkbox Interaction icons (on by default): switch it off to hide the game's interact icon above nodes, NPCs and objects and keep only the sparkles.
+
 ## 1.2.1
 
 - Fixed: killed mobs kept a nameplate with 0% health until they were looted. The soft target nameplate is now switched off when combat starts, so nodes don't sparkle during combat.

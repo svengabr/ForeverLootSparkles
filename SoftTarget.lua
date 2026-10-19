@@ -22,6 +22,7 @@ local DEFAULTS = {
 	sparkleOre = true,
 	sparkleHerbs = true,
 	sparkleQuest = false,
+	showIcons = true, -- the game's interact icon above the soft target
 };
 
 local RANGE = 60;          -- soft target range in yards, asked as high as Lueur tried; Forever still drops the target past ~15
@@ -167,9 +168,10 @@ local function ApplyCVars()
 	SetCVarValue("SoftTargetInteractArc", ARC);
 	SetCVarValue("SoftTargetInteractOnlyInRange", 0); -- also find objects outside interact range
 	-- the game's own icon above the target, also on world objects and low-priority targets
-	SetCVarValue("SoftTargetIconInteract", 1);
-	SetCVarValue("SoftTargetIconGameObject", 1);
-	SetCVarValue("SoftTargetLowPriorityIcons", 1);
+	local icons = db.showIcons and 1 or 0;
+	SetCVarValue("SoftTargetIconInteract", icons);
+	SetCVarValue("SoftTargetIconGameObject", icons);
+	SetCVarValue("SoftTargetLowPriorityIcons", icons);
 	gateOpen = nil;
 	Evaluate();
 end
@@ -669,13 +671,15 @@ function ns.AddSoftTargetOptions(category, savedVariables)
 		setting:SetValueChangedCallback(OnChanged);
 		Settings.CreateCheckbox(category, setting, tooltip);
 	end
-	local how = " Uses Blizzard's soft targeting: the nearest object within about 15 yards sparkles, brighter once you can reach it, and gets the game's interact icon.";
+	local how = " Uses Blizzard's soft targeting: the nearest object within about 15 yards sparkles, brighter once you can reach it, and gets the game's interact icon unless Interaction icons is off.";
 	AddCheckbox("sparkleOre", "FOREVER_LOOT_SPARKLES_ORE", "Ore veins",
 		"Sparkles on mining nodes as you approach them." .. how);
 	AddCheckbox("sparkleHerbs", "FOREVER_LOOT_SPARKLES_HERBS", "Herbs",
 		"Sparkles on herbs as you approach them." .. how);
 	AddCheckbox("sparkleQuest", "FOREVER_LOOT_SPARKLES_QUEST", "Quest objects",
 		"Extra sparkles on quest objects as you approach them. Off by default: the game's loot sparkle already marks most of them." .. how);
+	AddCheckbox("showIcons", "FOREVER_LOOT_SPARKLES_ICONS", "Interaction icons",
+		"The game's interact icon (gear, pickaxe, herb) above the object soft targeting picks, also on NPCs and other objects. Turn it off to keep only the sparkles.");
 
 	UpdatePoller();
 end

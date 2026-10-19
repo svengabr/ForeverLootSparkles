@@ -6,7 +6,7 @@ A small addon for **World of Warcraft: Forever** that makes lootable things spar
 
 - **Quest items** always show the game's loot sparkle, even after a graphics preset turns it off.
 - **Herbs and ore veins** sparkle as you approach them, which the game can't do on its own.
-- **Gathering icons** float above the node you're heading for.
+- **Gathering icons** float above the node you're heading for (optional).
 - Everything is optional, under Esc > Options > AddOns. No slash commands, nothing to set up.
 
 ![Forever Loot Sparkles](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/01-overview.jpg)
@@ -41,8 +41,9 @@ Open **Esc > Options > AddOns > Forever Loot Sparkles**.
 | Ore veins | on | Sparkles and icon on mining nodes. |
 | Herbs | on | Sparkles and icon on herbs. |
 | Quest objects | off | Extra sparkles on quest objects nearby. |
+| Interaction icons | on | The game's interact icon above the node or object you'd interact with. Off keeps only the sparkles. |
 
-The three bottom checkboxes take effect at once. **Show quest item sparkles** works at once when you switch it on, but switching it off only takes effect after **restarting the game** (`/reload` is not enough). The panel shows a reminder.
+The four bottom checkboxes take effect at once. **Show quest item sparkles** works at once when you switch it on, but switching it off only takes effect after **restarting the game** (`/reload` is not enough). The panel shows a reminder.
 
 ![Options](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/03-options.jpg)
 
@@ -61,7 +62,7 @@ The game has no setting for that. The quest item sparkle replaces the outline th
 The addon asks the game for the largest range, but the game itself drops the target at about 15 yards.
 
 **I also see an icon above NPCs or other objects.**
-The game's soft target icons are switched on for everything you can interact with, not only for herbs and ore.
+The game's soft target icons are switched on for everything you can interact with, not only for herbs and ore. Untick **Interaction icons** to hide them and keep the sparkles.
 
 **Why don't nodes sparkle during combat?**
 The game doesn't let addons change these settings during combat. Keeping the sparkle on through a fight would also show a 0% health nameplate over every lootable corpse, so the addon switches it off when combat starts.
@@ -104,9 +105,9 @@ For the herb and ore sparkles, while at least one of their checkboxes is on (the
 | `SoftTargetInteractRange` | 60 (the game still stops at about 15 yards) |
 | `SoftTargetInteractArc` | 2 |
 | `SoftTargetInteractOnlyInRange` | 0 |
-| `SoftTargetIconInteract` | 1 |
-| `SoftTargetIconGameObject` | 1 |
-| `SoftTargetLowPriorityIcons` | 1 |
+| `SoftTargetIconInteract` | 1 (0 with Interaction icons off) |
+| `SoftTargetIconGameObject` | 1 (0 with Interaction icons off) |
+| `SoftTargetLowPriorityIcons` | 1 (0 with Interaction icons off) |
 | `SoftTargetNameplateInteract` | 1 on a node that sparkles, otherwise 0 |
 
 ## Support
