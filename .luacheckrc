@@ -22,6 +22,7 @@ read_globals = {
   "GetTime",
   "InCombatLockdown",
   "issecretvalue",
+  "MinimalSliderWithSteppersMixin",
   "SetUnitCursorTexture",
   "Settings",
   "strlower",

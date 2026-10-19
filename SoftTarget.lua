@@ -22,10 +22,10 @@ local DEFAULTS = {
 	sparkleOre = true,
 	sparkleHerbs = true,
 	sparkleQuest = false,
+	range = 60, -- soft target range in yards, asked as high as Lueur tried; Forever still drops the target past ~15
+	arc = 2,    -- where it looks: 0 = straight ahead, 1 = in front, 2 = all around
 };
 
-local RANGE = 60;          -- soft target range in yards, asked as high as Lueur tried; Forever still drops the target past ~15
-local ARC = 2;             -- 0 = straight ahead, 1 = in front, 2 = all around
 local OFFSET_Y = -45;      -- from the nameplate down to the object (pixels)
 local SPREAD = 46;         -- radius the glints appear in (pixels)
 local GLINT_SIZE = 34;
@@ -163,8 +163,8 @@ local function ApplyCVars()
 		end
 	end
 	SetCVarValue("SoftTargetInteract", 3);          -- interaction soft target always on
-	SetCVarValue("SoftTargetInteractRange", RANGE);
-	SetCVarValue("SoftTargetInteractArc", ARC);
+	SetCVarValue("SoftTargetInteractRange", db.range);
+	SetCVarValue("SoftTargetInteractArc", db.arc);
 	SetCVarValue("SoftTargetInteractOnlyInRange", 0); -- also find objects outside interact range
 	-- the game's own icon above the target, also on world objects and low-priority targets
 	SetCVarValue("SoftTargetIconInteract", 1);
@@ -676,6 +676,29 @@ function ns.AddSoftTargetOptions(category, savedVariables)
 		"Sparkles on herbs as you approach them." .. how);
 	AddCheckbox("sparkleQuest", "FOREVER_LOOT_SPARKLES_QUEST", "Quest objects",
 		"Extra sparkles on quest objects as you approach them. Off by default: the game's loot sparkle already marks most of them." .. how);
+
+	-- Soft targeting also picks NPCs, and the game can show their name above them, so
+	-- a shorter range or looking only ahead keeps names from popping up all around.
+	local rangeSetting = Settings.RegisterAddOnSetting(category, "FOREVER_LOOT_SPARKLES_RANGE", "range", db,
+		Settings.VarType.Number, "Search range", DEFAULTS.range);
+	rangeSetting:SetValueChangedCallback(OnChanged);
+	local rangeOptions = Settings.CreateSliderOptions(5, 60, 5);
+	rangeOptions:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, function(value)
+		return ("%d yd"):format(value);
+	end);
+	Settings.CreateSlider(category, rangeSetting, rangeOptions,
+		"How far soft targeting looks for something to interact with. The game itself stops at about 15 yards, so anything above that works the same for nodes; a shorter range keeps NPC names from showing up from afar.");
+
+	local arcSetting = Settings.RegisterAddOnSetting(category, "FOREVER_LOOT_SPARKLES_ARC", "arc", db,
+		Settings.VarType.Number, "Search direction", DEFAULTS.arc);
+	arcSetting:SetValueChangedCallback(OnChanged);
+	Settings.CreateDropdown(category, arcSetting, function()
+		local container = Settings.CreateControlTextContainer();
+		container:Add(0, "Straight ahead");
+		container:Add(1, "In front");
+		container:Add(2, "All around");
+		return container:GetData();
+	end, "Where soft targeting looks: only straight ahead, in front of your character, or all around. In front picks the node you walk towards and leaves NPCs behind you alone.");
 
 	UpdatePoller();
 end
