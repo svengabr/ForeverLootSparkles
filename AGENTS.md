@@ -20,7 +20,7 @@ In combat it waits for `PLAYER_REGEN_ENABLED`. One option (checkbox under Esc > 
 `ForeverLootSparkles.lua`.
 
 `SoftTarget.lua` (adapted from the maintainer's Lueur addon) adds sparkles on ore veins, herbs and optionally quest
-objects: it switches on interaction soft targeting (`SoftTargetInteract` 3, range 60 (the client still stops at ~15), arc 2, icons via `SoftTargetIconInteract`, `SoftTargetIconGameObject`, `SoftTargetLowPriorityIcons` = 1), turns the
+objects: it switches on interaction soft targeting (`SoftTargetInteract` 3, range from the option `range` (default 60, the client still stops at ~15), arc from the option `arc` (default 2), icons via `SoftTargetIconInteract`, `SoftTargetIconGameObject`, `SoftTargetLowPriorityIcons` = 1), turns the
 `softinteract` nameplate on only for wanted objects (`SoftTargetNameplateInteract`), classifies the object by its
 cursor icon (`SetUnitCursorTexture`) and hangs a cluster of glints (`Textures/flare.tga`, fallback
 `Interface\Cooldown\star4`) on that nameplate. States: far (dim), ready (bright), locked (grey). The nameplate is closed on `PLAYER_REGEN_DISABLED` (cvars are locked in combat; left open, lootable corpses kept a 0% health nameplate, reported on CurseForge), so nodes don't sparkle in combat. Options

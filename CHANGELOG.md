@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- New options Search range (5 to 60 yards, 60 by default) and Search direction (straight ahead, in front or all around, all around by default). Soft targeting also picks NPCs and can show their name, so a shorter range or looking only in front keeps names from popping up all around you.
+
 ## 1.2.1
 
 - Fixed: killed mobs kept a nameplate with 0% health until they were looted. The soft target nameplate is now switched off when combat starts, so nodes don't sparkle during combat.

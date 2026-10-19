@@ -35,14 +35,16 @@ The addon only switches on the game's name and icon for nodes that sparkle. NPCs
 
 Open **Esc > Options > AddOns > Forever Loot Sparkles**.
 
-| Checkbox | Default | What it does |
+| Option | Default | What it does |
 | --- | --- | --- |
 | Show quest item sparkles | on | Keeps the outline mode off and the loot sparkle on. |
 | Ore veins | on | Sparkles and icon on mining nodes. |
 | Herbs | on | Sparkles and icon on herbs. |
 | Quest objects | off | Extra sparkles on quest objects nearby. |
+| Search range | 60 yd | How far soft targeting looks. The game stops at about 15 yards anyway; a shorter range keeps NPC names from showing up from afar. |
+| Search direction | All around | Straight ahead, in front or all around. In front picks the node you walk towards and leaves NPCs behind you alone. |
 
-The three bottom checkboxes take effect at once. **Show quest item sparkles** works at once when you switch it on, but switching it off only takes effect after **restarting the game** (`/reload` is not enough). The panel shows a reminder.
+The other options take effect at once. **Show quest item sparkles** works at once when you switch it on, but switching it off only takes effect after **restarting the game** (`/reload` is not enough). The panel shows a reminder.
 
 ![Options](https://raw.githubusercontent.com/svengabr/ForeverLootSparkles/main/media/gallery/03-options.jpg)
 
@@ -101,8 +103,8 @@ For the herb and ore sparkles, while at least one of their checkboxes is on (the
 | Console variable | Value |
 | --- | --- |
 | `SoftTargetInteract` | 3 |
-| `SoftTargetInteractRange` | 60 (the game still stops at about 15 yards) |
-| `SoftTargetInteractArc` | 2 |
+| `SoftTargetInteractRange` | Search range, 60 by default (the game still stops at about 15 yards) |
+| `SoftTargetInteractArc` | Search direction, 2 (all around) by default |
 | `SoftTargetInteractOnlyInRange` | 0 |
 | `SoftTargetIconInteract` | 1 |
 | `SoftTargetIconGameObject` | 1 |
