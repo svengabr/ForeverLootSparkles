@@ -36,6 +36,12 @@ Removing the addon alone does not switch the sparkle off, because WoW saves the 
 - The game shows either the sparkle or the outline on quest items, never both.
 - The game decides which objects sparkle. Addons can't pick.
 
+## About me
+
+I'm Sven. I've been a software developer for over 20 years, and I write and maintain my World of Warcraft addons in my free time. They are free and open source, and they will stay that way.
+
+Found a bug or have an idea? Open an [issue](https://github.com/svengabr/ForeverLootSparkles/issues) or send me a DM on [CurseForge](https://www.curseforge.com/members/conoar).
+
 ## Support
 
 The addon is free and always will be. If it made your game a bit nicer, you can [buy me a coffee](https://buymeacoffee.com/conoar) or send something via [PayPal](https://paypal.me/svengabr).
