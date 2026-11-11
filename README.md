@@ -32,7 +32,10 @@ Switching it on works at once. Switching it off only takes effect after **restar
 
 Versions 1.2.0 to 1.3.1 also made ore veins, herbs, corpses with loot and quest objects sparkle. That relied on Blizzard's soft targeting, and it caused trouble: friendly spells cast without a target landed on someone nearby instead of on you, dead mobs showed an empty nameplate, and interact icons appeared above objects. Version 2.0.0 removes all of it.
 
-**Looking for herb and ore sparkles?** Try [Lueur](https://www.curseforge.com/wow/addons/lueur). It lights up ore veins, herbs, chests and quest objects as you approach them, with ten effects to choose from (sparkles and a light beam among them).
+**Looking for herb and ore sparkles?** There are two addons for that:
+
+- [Forever Loot Sparkles : Herbs & Ores](https://www.curseforge.com/wow/addons/forever-loot-sparkles-herbs-ores) by N3zr0k is a small companion addon for this one. It brings back the sparkles on herbs, ore veins, quest objects and corpses with loot, with a color of your own for each, and comes with its own fixes for the self-cast, nameplate and interact icon problems. It needs Forever Loot Sparkles installed.
+- [Lueur](https://www.curseforge.com/wow/addons/lueur) is the bigger one. It lights up ore veins, herbs, chests and quest objects as you approach them, with ten effects to choose from (sparkles and a light beam among them).
 
 On the first login after updating, the addon puts the soft targeting settings it changed back to what you had before: **Enable Interact Key**, the interact icons on objects, the interact range and the soft target nameplate. If you changed one of them yourself in the meantime, yours stays.
 
@@ -61,7 +64,7 @@ Deleting the `WTF` or `Interface` folder may not help either: WoW keeps a copy o
 No. The game has one switch for this: the loot sparkle replaces the outline on quest items. This addon only keeps the game's own effect on; for other effects, such as a light beam on nearby objects, see [Lueur](https://www.curseforge.com/wow/addons/lueur).
 
 **Quest givers or other NPCs sparkle too.**
-Since 2.0.0 the only sparkle left is the game's own loot sparkle, which the addon keeps switched on. The game decides which objects get it; addons can't pick.
+Since 2.0.0 the only sparkle left is the game's own loot sparkle, which the addon keeps switched on. The game decides which objects get it; addons can't pick. If you have the companion addon [Forever Loot Sparkles : Herbs & Ores](https://www.curseforge.com/wow/addons/forever-loot-sparkles-herbs-ores) installed, its sparkles are set on its own options.
 
 **I see 2 or 3 minimap icons for one herb.**
 That doesn't come from this addon, which never touches the minimap. Try with only this addon enabled; if it still happens, it is the game or another addon.
