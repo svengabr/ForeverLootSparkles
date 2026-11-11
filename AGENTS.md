@@ -37,7 +37,8 @@ The feature was extracted from ForeverQoL, which set the same cvars through secu
   again" section in sync with what actually works in the client.
 - Commit messages follow Conventional Commits (`feat:`, `fix:`, `chore:` …).
 - The README is also the **CurseForge project description**. CurseForge can't take it over via API; after README
-  changes, remind the maintainer to paste it there by hand.
+  changes, remind the maintainer to paste it there by hand. Leave out the title, the logo and the two gallery
+  images there: the CurseForge page already shows all three above the description.
 
 ## Checks
 
