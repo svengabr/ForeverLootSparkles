@@ -35,6 +35,7 @@ Removing the addon alone does not switch the sparkle off, because WoW saves the 
 
 - The game shows either the sparkle or the outline on quest items, never both.
 - The game decides which objects sparkle. Addons can't pick.
+- Quest givers sparkle too. The game uses one setting for both, so there is no way to keep the sparkle on quest items and drop it on NPCs.
 
 ## About me
 
