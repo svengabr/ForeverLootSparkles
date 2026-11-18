@@ -1,6 +1,7 @@
 ## Interface: 16001
 ## Title: Forever Loot Sparkles
 ## Notes: Always shows the sparkle effect on lootable quest items. Switches the loot sparkle back on at login and whenever a graphics change resets it. Options under Options > AddOns.
+## Notes-frFR: Affiche toujours le scintillement sur les objets de quête à ramasser. Réactive le scintillement du butin à la connexion et chaque fois qu'un changement de réglages graphiques le réinitialise. Réglages dans Options > AddOns.
 ## Author: Ashtar Senior
 #@debug@
 ## Version: dev
@@ -13,4 +14,5 @@
 ## X-License: GPL-3.0-or-later
 ## X-Curse-Project-ID: 1729017
 
+Locales.lua
 ForeverLootSparkles.lua

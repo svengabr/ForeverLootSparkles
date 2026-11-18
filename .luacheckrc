@@ -11,6 +11,7 @@ globals = {
 read_globals = {
   "C_CVar",
   "CreateFrame",
+  "GetLocale",
   "GetTime",
   "InCombatLockdown",
   "Settings",

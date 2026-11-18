@@ -3,7 +3,8 @@
 -- cvar change. The outline mode is the player's: up to 1.3.0 it was forced
 -- off, which took away the Self Highlight outline (CurseForge issue #1).
 
-local ADDON_NAME = ...;
+local ADDON_NAME, ns = ...;
+local L = ns.L;
 
 local WANTED = {
 	outlineModeShowLootEffectWhenDisabled = "1",
@@ -127,7 +128,7 @@ local function OnEnabledChanged(_, value)
 		-- not enough). Told in chat: a shown predicate on a settings initializer
 		-- runs addon code inside Blizzard's options search and taints it.
 		if sparklesShown then
-			print("|cffff8000Forever Loot Sparkles:|r restart the game to remove the sparkles. /reload is not enough.");
+			print(L["|cffff8000Forever Loot Sparkles:|r restart the game to remove the sparkles. /reload is not enough."]);
 		end
 	end
 end
@@ -136,10 +137,10 @@ local function RegisterOptions()
 	local category = Settings.RegisterVerticalLayoutCategory("Forever Loot Sparkles");
 
 	local setting = Settings.RegisterAddOnSetting(category, "FOREVER_LOOT_SPARKLES_ENABLED", "enabled",
-		db, Settings.VarType.Boolean, "Show quest item sparkles", Settings.Default.True);
+		db, Settings.VarType.Boolean, L["Show quest item sparkles"], Settings.Default.True);
 	setting:SetValueChangedCallback(OnEnabledChanged);
 	Settings.CreateCheckbox(category, setting,
-		"Keeps the game's loot sparkle on, even after a graphics preset turns it off. Your outline mode is left as you set it. Switching this off takes effect after restarting the game.");
+		L["Keeps the game's loot sparkle on, even after a graphics preset turns it off. Your outline mode is left as you set it. Switching this off takes effect after restarting the game."]);
 
 	Settings.RegisterAddOnCategory(category);
 end
