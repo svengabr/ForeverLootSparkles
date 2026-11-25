@@ -11,7 +11,7 @@ login (and 5 s later) and about 1 s after any watched cvar changes (`CVAR_UPDATE
 (CurseForge issue #1). The outline mode is the player's setting: don't touch it.
 
 In combat it waits for `PLAYER_REGEN_ENABLED`. One option (checkbox under Esc > Options > AddOns, SavedVariable `ForeverLootSparklesDB.enabled`, default on); switching it off stops enforcing and writes the `DISABLED` value once (loot effect 0). Tested in the client: switching on shows the sparkle at once, switching off only takes effect after a full game restart (`/reload` is not enough), so switching it off prints a restart notice in chat (not a settings header with a shown predicate: Blizzard's options search runs those and gets tainted, CurseForge issue #4). The cvar part lives in
-`ForeverLootSparkles.lua`.
+`ForeverLootSparkles.lua`. `CreatorTooltip.lua` adds a line to the tooltips of the creator's characters, listed there by GUID.
 
 Up to 1.3.x a second file, `SoftTarget.lua` (from the maintainer's Lueur addon), made ore veins, herbs, corpses with
 loot and quest objects sparkle by switching on Blizzard's interaction soft targeting (`SoftTargetInteract` 3,

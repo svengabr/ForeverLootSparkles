@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0
+
+- The addon's creator has a "Forever Loot Sparkles Creator" line in the tooltip.
+
 ## 2.0.0
 
 - The addon is back to what it started as: it only keeps the game's loot sparkle on quest items switched on.

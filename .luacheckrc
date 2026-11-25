@@ -11,8 +11,14 @@ globals = {
 read_globals = {
   "C_CVar",
   "CreateFrame",
+  "Enum",
+  "GameTooltip",
   "GetTime",
   "InCombatLockdown",
   "Settings",
+  "TooltipDataProcessor",
+  "UnitGUID",
+  "issecrettable",
+  "issecretvalue",
   "strlower",
 }
